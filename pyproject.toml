@@ -45,7 +45,7 @@ dependencies = [
     "cachetools",
     "descript-audio-codec",
     "descript-audiotools",
-    "pyyaml>=6
+    "pyyaml>=6"
 ]
 
 [project.optional-dependencies]
