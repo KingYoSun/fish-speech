@@ -2,6 +2,7 @@ import io
 from hashlib import sha256
 from pathlib import Path
 from typing import Callable, Literal, Tuple
+import tempfile
 
 import torch
 import torchaudio
@@ -31,8 +32,19 @@ class ReferenceLoader:
         self.encode_reference: Callable
 
         # Define the torchaudio backend
-        backends = torchaudio.list_audio_backends()
-        if "ffmpeg" in backends:
+        test_file = tempfile.mktemp(suffix=".wav")
+        backends = ["ffmpeg", "soundfile"]
+        available = []
+        for backend in backends:
+            try:
+                # load でテスト (save でも可)
+                waveform, sr = torchaudio.load(test_file, backend=backend)
+                available.append(backend)
+                print(f"{backend}: is available")
+            except Exception as e:
+                print(f"{backend}: is not available {e}")
+
+        if "ffmpeg" in available:
             self.backend = "ffmpeg"
         else:
             self.backend = "soundfile"
