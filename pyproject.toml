@@ -51,19 +51,24 @@ dependencies = [
 
 [project.optional-dependencies]
 stable = [
-    "torch<2.9.0",
+  "torch<2.9.0",
+  "torchaudio",
 ]
 cpu = [
   "torch>=2.5.1",
+  "torchaudio",
 ]
 cu126 = [
   "torch>=2.5.1",
+  "torchaudio",
 ]
 cu128 = [
   "torch>=2.5.1",
+  "torchaudio",
 ]
 cu129 = [
   "torch>=2.5.1",
+  "torchaudio",
 ]
 
 [tool.uv]
