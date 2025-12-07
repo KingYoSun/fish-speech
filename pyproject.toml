@@ -46,7 +46,8 @@ dependencies = [
     "cachetools==6.2.0",
     "descript-audio-codec==1.0.0",
     "descript-audiotools==0.7.2",
-    "pyyaml==6.0.2"
+    "pyyaml==6.0.2",
+    "triton==3.5.1"
 ]
 
 [project.optional-dependencies]
